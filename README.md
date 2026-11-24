@@ -1,17 +1,17 @@
 # FastAPI Todo App
 
-Python FastAPI task-management REST API with JWT auth.
+Todo web app + REST API with JWT auth.
 
 ## Live
 
-- API: https://fastapi-todo-app.vercel.app
-- Docs: https://fastapi-todo-app.vercel.app/docs
+- App UI: https://pooja-fastapi-todo.vercel.app
+- API docs: https://pooja-fastapi-todo.vercel.app/docs
 
-## Stack
+## Features
 
-- FastAPI + Uvicorn
-- JWT auth
-- SQLAlchemy (SQLite on Vercel by default, Postgres via `DATABASE_URL`)
+- Register / login
+- Create, complete, filter, and delete tasks
+- JWT-protected API
 
 ## Local
 
@@ -19,3 +19,5 @@ Python FastAPI task-management REST API with JWT auth.
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
+
+Open http://127.0.0.1:8000

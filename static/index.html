@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo — Pooja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="top">
+        <div>
+          <p class="eyebrow">FastAPI Todo</p>
+          <h1>Your tasks, simply.</h1>
+        </div>
+        <div class="top-actions">
+          <a class="ghost-link" href="/docs" target="_blank" rel="noreferrer">API docs</a>
+          <button id="logoutBtn" class="ghost-btn hidden" type="button">Log out</button>
+        </div>
+      </header>
+
+      <section id="authPanel" class="panel">
+        <div class="tabs">
+          <button type="button" class="tab active" data-tab="login">Log in</button>
+          <button type="button" class="tab" data-tab="register">Register</button>
+        </div>
+
+        <form id="loginForm" class="form">
+          <label>
+            Email
+            <input id="loginEmail" type="email" required autocomplete="email" />
+          </label>
+          <label>
+            Password
+            <input id="loginPassword" type="password" required minlength="8" autocomplete="current-password" />
+          </label>
+          <button class="primary" type="submit">Log in</button>
+        </form>
+
+        <form id="registerForm" class="form hidden">
+          <label>
+            Email
+            <input id="registerEmail" type="email" required autocomplete="email" />
+          </label>
+          <label>
+            Password
+            <input id="registerPassword" type="password" required minlength="8" autocomplete="new-password" />
+          </label>
+          <button class="primary" type="submit">Create account</button>
+        </form>
+        <p id="authMessage" class="message" role="status"></p>
+      </section>
+
+      <section id="appPanel" class="panel hidden">
+        <form id="taskForm" class="task-form">
+          <input id="taskTitle" type="text" maxlength="200" placeholder="Add a task…" required />
+          <button class="primary" type="submit">Add</button>
+        </form>
+
+        <div class="filters">
+          <button type="button" class="chip active" data-filter="all">All</button>
+          <button type="button" class="chip" data-filter="open">Open</button>
+          <button type="button" class="chip" data-filter="done">Done</button>
+        </div>
+
+        <ul id="taskList" class="task-list"></ul>
+        <p id="emptyState" class="empty hidden">No tasks yet. Add your first one above.</p>
+        <p id="appMessage" class="message" role="status"></p>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
