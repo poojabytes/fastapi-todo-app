@@ -1,4 +1,5 @@
 from fastapi import Depends, FastAPI, HTTPException, Query, status
+from fastapi.responses import RedirectResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -9,6 +10,12 @@ from .database import Base, engine, get_db
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Todo API", version="1.0.0")
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    """Send visitors on the base URL to interactive API docs."""
+    return RedirectResponse(url="/docs"))
 
 
 @app.get("/health")
