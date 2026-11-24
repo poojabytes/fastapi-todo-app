@@ -15,7 +15,7 @@ app = FastAPI(title="Todo API", version="1.0.0")
 @app.get("/", include_in_schema=False)
 def root():
     """Send visitors on the base URL to interactive API docs."""
-    return RedirectResponse(url="/docs"))
+    return RedirectResponse("/docs")
 
 
 @app.get("/health")
